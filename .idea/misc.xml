@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Dicoding/Exonimals/app/src/main/res/layout/activity_about.xml" value="0.1693840579710145" />
+        <entry key="..\:/Dicoding/Exonimals/app/src/main/res/layout/activity_about.xml" value="0.25" />
         <entry key="..\:/Dicoding/Exonimals/app/src/main/res/layout/activity_detail.xml" value="0.1693840579710145" />
+        <entry key="..\:/Dicoding/Exonimals/app/src/main/res/layout/item_list_animals.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Exonimals</string>
+    <string name="my_name">Bayu Nugroho</string>
+    <string name="email">bayun2445@gmail.com</string>
+    <string name="animal_name">AnimalName</string>
+    <string name="origin">Origin</string>
 </resources>

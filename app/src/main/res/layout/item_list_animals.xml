@@ -23,8 +23,4 @@
         android:gravity="end|center_vertical"
         android:text="@string/origin"/>
 
-
-
-
-
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.exonimals
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,10 @@ class MainActivity : AppCompatActivity() {
 
         rv_animals.setHasFixedSize(true)
         showListAnimal()
+
+        btn_about_main.setOnClickListener {
+            startActivity(Intent(this, AboutActivity::class.java))
+        }
     }
 
     private fun showListAnimal() {

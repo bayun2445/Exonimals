@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/action_top_main"
+        android:id="@+id/action_top"
         style="@style/CustomActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -35,7 +35,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/action_top_main"
+        android:layout_below="@id/action_top"
         android:padding="10dp"
         tools:listitem="@layout/item_list_animals" />
 </RelativeLayout>

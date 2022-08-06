@@ -10,16 +10,32 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 class ListAnimalAdapter(private val listAnimal: ArrayList<Animal>): RecyclerView.Adapter<ListAnimalAdapter.ListViewHolder>() {
-    class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    private lateinit var clicked: ItemClicked
+
+    interface ItemClicked {
+        fun click(position: Int)
+    }
+
+    fun setClicked(clicked: ItemClicked){
+        this.clicked = clicked
+    }
+
+    class ListViewHolder(itemView: View, itemClicked: ItemClicked): RecyclerView.ViewHolder(itemView) {
         var tvName: TextView = itemView.findViewById(R.id.tv_name)
         var tvHabitat: TextView =  itemView.findViewById(R.id.tv_habitat)
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_photo)
+
+        init {
+            itemView.setOnClickListener{
+                itemClicked.click(absoluteAdapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_animals, parent, false)
 
-        return ListViewHolder(view)
+        return ListViewHolder(view, clicked)
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {

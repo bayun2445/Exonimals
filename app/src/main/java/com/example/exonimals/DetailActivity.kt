@@ -2,10 +2,9 @@ package com.example.exonimals
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.DisplayMetrics
+import android.text.method.ScrollingMovementMethod
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
 
 @Suppress("DEPRECATION")
@@ -14,6 +13,7 @@ class DetailActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
+        tv_detail_description.movementMethod = ScrollingMovementMethod()
         setActionBarButtonsClickListener()
         loadAnimalData()
     }
@@ -23,9 +23,10 @@ class DetailActivity: AppCompatActivity() {
         val list = AnimalData.listAnimals
         val animal = list[pos]
 
-        Glide.with(this)
+        Picasso.get()
             .load(animal.photo)
-            .apply(RequestOptions().override(getScreenWidth(),300))
+            .fit()
+            .centerCrop()
             .into(img_detail_animal)
 
         tv_detail_name.text = animal.name
@@ -34,13 +35,6 @@ class DetailActivity: AppCompatActivity() {
         tv_detail_diet.text = animal.diet
         tv_detail_description.text = animal.description
     }
-
-    private fun getScreenWidth(): Int {
-        val displayMetrics = DisplayMetrics()
-        this.windowManager.defaultDisplay.getMetrics(displayMetrics)
-        return displayMetrics.widthPixels
-    }
-
 
     private fun setActionBarButtonsClickListener() {
         btn_about.setOnClickListener {

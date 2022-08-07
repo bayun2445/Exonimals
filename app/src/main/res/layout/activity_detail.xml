@@ -37,52 +37,64 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
 
             <ImageView
                 android:id="@+id/img_detail_animal"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:src="@drawable/kukang"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                android:scaleType="fitXY"/>
 
-            <TextView
-                android:id="@+id/tv_detail_name"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/animal_name"
-                android:textSize="30sp"/>
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp">
 
-            <TextView
-                android:id="@+id/tv_detail_latin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="italic"
-                android:text="@string/latin_name" />
+                <TextView
+                    android:id="@+id/tv_detail_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/animal_name"
+                    android:fontFamily="@font/amaranth"
+                    android:textSize="30sp" />
 
-            <TextView
-                android:id="@+id/tv_detail_habitat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/habitat"/>
+                <TextView
+                    android:id="@+id/tv_detail_latin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_light"
+                    android:textStyle="italic"
+                    android:text="@string/latin_name" />
 
-            <TextView
-                android:id="@+id/tv_detail_diet"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/diet"/>
+                <TextView
+                    android:id="@+id/tv_detail_habitat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/habitat"
+                    android:fontFamily="@font/open_sans_light"/>
 
-            <TextView
-                android:id="@+id/tv_detail_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:justificationMode="inter_word"
-                android:text="@string/description" />
+                <TextView
+                    android:id="@+id/tv_detail_diet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_light"
+                    android:text="@string/diet"/>
+
+                <TextView
+                    android:id="@+id/tv_detail_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="@font/open_sans_light"
+                    android:text="@string/description" />
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

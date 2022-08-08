@@ -1,19 +1,22 @@
 package com.example.exonimals
 
 import android.content.Intent
+import android.graphics.text.LineBreaker
+import android.os.Build
 import android.os.Bundle
-import android.text.method.ScrollingMovementMethod
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
 
 @Suppress("DEPRECATION")
 class DetailActivity: AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        tv_detail_description.movementMethod = ScrollingMovementMethod()
+        tv_detail_description.justificationMode = LineBreaker.JUSTIFICATION_MODE_INTER_WORD
         setActionBarButtonsClickListener()
         loadAnimalData()
     }

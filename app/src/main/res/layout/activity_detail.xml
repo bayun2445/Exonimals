@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/action_top"
+        style="@style/CustomActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            style="@style/Base.Widget.AppCompat.ImageButton.CustomImageButton"
+            android:src="@drawable/ic_baseline_arrow_back_30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/btn_about"
+            style="@style/Base.Widget.AppCompat.ImageButton.CustomImageButton"
+            android:src="@drawable/ic_baseline_person_30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/action_top">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <ImageView
+                android:id="@+id/img_detail_animal"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@drawable/kukang"
+                tools:ignore="ContentDescription"
+                android:scaleType="fitXY"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp">
+
+                <TextView
+                    android:id="@+id/tv_detail_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/animal_name"
+                    android:fontFamily="@font/amaranth"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/tv_detail_latin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_light"
+                    android:textStyle="italic"
+                    android:text="@string/latin_name" />
+
+                <TextView
+                    android:id="@+id/tv_detail_habitat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/habitat"
+                    android:fontFamily="@font/open_sans_light"/>
+
+                <TextView
+                    android:id="@+id/tv_detail_diet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_light"
+                    android:text="@string/diet"/>
+
+                <TextView
+                    android:id="@+id/tv_detail_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="@font/open_sans_light"
+                    android:text="@string/description" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

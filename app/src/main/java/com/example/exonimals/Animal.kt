@@ -7,5 +7,6 @@ data class Animal(
     var habitat: String = "",
     var diet: String = "",
     var description: String = "",
-    var photo: Int = 0
+    var photo: Int = 0,
+    var isFavorite: Boolean = false
 )

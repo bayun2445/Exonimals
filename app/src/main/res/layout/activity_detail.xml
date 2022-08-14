@@ -123,6 +123,22 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_favorite"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:checkable="true"
+                android:text="@string/add_to_favorite"
+                android:textAlignment="center"
+                android:textColor="@color/green_primary"
+                app:checkedIcon="@drawable/ic_baseline_check_24"
+                app:chipBackgroundColor="@color/white"
+                app:chipIconEnabled="true"
+                app:chipStrokeColor="@color/green_primary"
+                app:chipStrokeWidth="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cv_photo_container" />
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -130,9 +146,9 @@
                 android:clipToPadding="false"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="15dp"
+                app:cardElevation="10dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cv_photo_container">
+                app:layout_constraintTop_toBottomOf="@id/chip_favorite">
 
                 <TextView
                     android:id="@+id/tv_detail_description"

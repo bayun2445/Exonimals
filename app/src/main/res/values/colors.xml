@@ -10,4 +10,5 @@
     <color name="green_highlight_font">#015707</color>
     <color name="grey_body_font">#2C2C2C</color>
     <color name="green_primary">#14841B</color>
+    <color name="green_light_chip">#EDFFEE</color>
 </resources>

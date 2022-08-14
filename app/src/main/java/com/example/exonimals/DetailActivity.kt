@@ -14,6 +14,8 @@ class DetailActivity: AppCompatActivity() {
         setContentView(R.layout.activity_detail)
 
         tv_detail_description.justificationMode = LineBreaker.JUSTIFICATION_MODE_INTER_WORD
+        chip_favorite.chipBackgroundColor = getColorStateList(R.color.chip_color)
+        chip_favorite.setTextColor(getColorStateList(R.color.chip_text_color))
         setActionBarButtonsClickListener()
         loadAnimalData()
     }

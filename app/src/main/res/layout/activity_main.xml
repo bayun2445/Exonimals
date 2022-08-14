@@ -32,10 +32,32 @@
             tools:ignore="ContentDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_animals"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/action_top"
-        tools:listitem="@layout/item_list_animals" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/amaranth"
+            android:text="@string/add_to_favorite"
+            android:textColor="@color/green_highlight_font"
+            android:textSize="18sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_animals_favorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            tools:listitem="@layout/item_list_animals" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_animals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_list_animals" />
+    </LinearLayout>
+
 </RelativeLayout>

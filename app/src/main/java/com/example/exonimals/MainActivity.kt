@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private var list = AnimalData.listAnimals
-    private val listAnimalAdapter = ListAnimalAdapter(list)
+    companion object {
+        var listAnimal = AnimalData.listAnimals
+        val listAnimalAdapter = ListAnimalAdapter(listAnimal)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

@@ -10,4 +10,7 @@
     <string name="diet">Diet: %1$s</string>
     <string name="class_text">Class: %1$s</string>
     <string name="add_to_favorite">Favorite</string>
+    <string name="no_favorite">Nothing in favorite…</string>
+    <string name="show">Show</string>
+    <string name="hide">Hide</string>
 </resources>

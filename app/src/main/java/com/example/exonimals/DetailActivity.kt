@@ -2,41 +2,73 @@ package com.example.exonimals
 
 import android.content.Intent
 import android.graphics.text.LineBreaker
-import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail.*
+import com.example.exonimals.MainActivity.Companion as main
 
 @Suppress("DEPRECATION")
 class DetailActivity: AppCompatActivity() {
-    @RequiresApi(Build.VERSION_CODES.Q)
+    private var pos  = -1
+    private var listIndex = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
+
         tv_detail_description.justificationMode = LineBreaker.JUSTIFICATION_MODE_INTER_WORD
         setActionBarButtonsClickListener()
         loadAnimalData()
+        setChipOnCheckedChangeListener()
     }
 
     private fun loadAnimalData() {
-        val pos = intent.getIntExtra("pos", -1)
-        val list = AnimalData.listAnimals
-        val animal = list[pos]
+        pos = intent.getIntExtra("pos", -1)
+        val isOnFavorite = intent.getBooleanExtra("favorite", false)
+        val animal =
+            if (isOnFavorite)
+                main.favListAnimal[pos]
+            else
+                main.listAnimal[pos]
+        listIndex = main.listAnimal.indexOf(animal)
 
-        Picasso.get()
+        Glide.with(this)
             .load(animal.photo)
-            .fit()
-            .centerCrop()
-            .into(img_detail_animal)
+            .fitCenter()
+            .into(img_detail_photo)
 
+        chip_favorite.isChecked = animal.isFavorite
         tv_detail_name.text = animal.name
-        tv_detail_latin.text = animal.latinName
-        tv_detail_habitat.text = animal.habitat
-        tv_detail_diet.text = animal.diet
         tv_detail_description.text = animal.description
+        tv_detail_class.text = getString(R.string.class_text, animal.classification)
+        tv_detail_latin.text = getString(R.string.latin_name, animal.latinName)
+        tv_detail_habitat.text = getString(R.string.habitat, animal.habitat)
+        tv_detail_diet.text = getString(R.string.diet, animal.diet)
+
+    }
+
+    private fun setChipOnCheckedChangeListener() {
+        chip_favorite.setOnCheckedChangeListener{ _, isChecked ->
+            main.listAnimal[listIndex].isFavorite = isChecked
+            val tempAnimal = main.listAnimal[listIndex]
+            val name = main.listAnimal[listIndex].name
+            val favCheck = main.listAnimal[listIndex].isFavorite
+
+            if (isChecked) {
+                main.favListAnimal.add(tempAnimal)
+                main.favListAnimalAdapter.notifyItemInserted(main.favListAnimal.lastIndex)
+            }
+            else {
+                val animalFavoriteIndex = main.favListAnimal.indexOf(tempAnimal)
+                main.favListAnimal.removeAt(animalFavoriteIndex)
+                main.favListAnimalAdapter.notifyItemRemoved(animalFavoriteIndex)
+            }
+
+            val favListCheck = main.favListAnimal.size
+            Toast.makeText(this, "$name's isFavorite: $favCheck \n Chip's: $isChecked \n Favorite List Size: $favListCheck", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setActionBarButtonsClickListener() {

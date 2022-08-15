@@ -7,12 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
-import com.squareup.picasso.Picasso
 
 class ListAnimalAdapter(private val listAnimal: ArrayList<Animal>): RecyclerView.Adapter<ListAnimalAdapter.ListViewHolder>() {
     private lateinit var clicked: ItemClicked
+
 
     interface ItemClicked {
         fun click(position: Int)
@@ -26,6 +24,7 @@ class ListAnimalAdapter(private val listAnimal: ArrayList<Animal>): RecyclerView
         var tvName: TextView = itemView.findViewById(R.id.tv_name)
         var tvHabitat: TextView =  itemView.findViewById(R.id.tv_habitat)
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_photo)
+        var arrIndex: Int = -1
 
         init {
             itemView.setOnClickListener{
@@ -50,6 +49,7 @@ class ListAnimalAdapter(private val listAnimal: ArrayList<Animal>): RecyclerView
 
         holder.tvName.text = animal.name
         holder.tvHabitat.text = animal.habitat
+        holder.arrIndex = position
     }
 
     override fun getItemCount(): Int {

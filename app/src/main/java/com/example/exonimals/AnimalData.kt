@@ -14,6 +14,19 @@ object AnimalData {
         "Rubah Fennec"
     )
 
+    private val classifications = arrayOf(
+        "Mammalia",
+        "Aves",
+        "Mammalia",
+        "Actinopterygii",
+        "Actinopterygii",
+        "Mammalia",
+        "Mammalia",
+        "Reptilia",
+        "Mammalia",
+        "Mammalia"
+    )
+
     private val latinNames = arrayOf(
         "Nycticebus coucang",
         "Aix galericulata",
@@ -66,7 +79,7 @@ object AnimalData {
         "Rubah Fennec ditemukan di seluruh Sahara, dari Maroko dan Mauritania ke Sudan utara, melalui Mesir, Semenanjung Sinai, dan gurun Arava dan Negev di Israel selatan. Ini mendiami bukit pasir kecil dan daerah pasir luas tanpa pohon dekat biaya dengan vegetasi jarang seperti rumput, sedges, dan semak-semak kecil."
     )
 
-    val photos = arrayOf(
+    private val photos = arrayOf(
         R.drawable.kukang,
         R.drawable.bebek_mandarin,
         R.drawable.tapir,
@@ -85,6 +98,7 @@ object AnimalData {
             for (pos in names.indices){
                 val animal = Animal()
                 animal.name = names[pos]
+                animal.classification = classifications[pos]
                 animal.latinName = latinNames[pos]
                 animal.habitat = habitats[pos]
                 animal.diet = diets[pos]

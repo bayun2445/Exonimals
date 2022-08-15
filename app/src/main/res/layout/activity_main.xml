@@ -26,16 +26,80 @@
         <ImageButton
             android:id="@+id/btn_about_main"
             style="@style/Base.Widget.AppCompat.ImageButton.CustomImageButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/ic_baseline_person_30"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_animals"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/action_top"
-        tools:listitem="@layout/item_list_animals" />
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/amaranth"
+                android:text="@string/add_to_favorite"
+                android:textColor="@color/green_highlight_font"
+                android:textSize="18sp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_show_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:checkable="true"
+                android:text="@string/show"
+                android:textColor="@color/chip_text_color"
+                app:checkedIcon="@null"
+                app:chipBackgroundColor="@color/chip_color"
+                app:chipStrokeColor="@color/green_primary"
+                app:chipStrokeWidth="1dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/container_favorite"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:orientation="vertical"
+            android:clipToPadding="false"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_no_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_favorite"
+                android:layout_gravity="center"
+                android:paddingVertical="20dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_animals_favorite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp"
+                android:clipToPadding="false"
+                android:scrollbars="vertical"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_list_animals" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_animals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_list_animals" />
+    </LinearLayout>
+
 </RelativeLayout>

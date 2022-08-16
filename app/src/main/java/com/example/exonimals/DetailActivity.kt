@@ -11,12 +11,11 @@ import com.example.exonimals.MainActivity.Companion as main
 
 @Suppress("DEPRECATION")
 class DetailActivity: AppCompatActivity() {
+    private lateinit var animal: Animal
     private var pos  = -1
-    private var listIndex = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-
 
         tv_detail_description.justificationMode = LineBreaker.JUSTIFICATION_MODE_INTER_WORD
         setActionBarButtonsClickListener()
@@ -26,13 +25,7 @@ class DetailActivity: AppCompatActivity() {
 
     private fun loadAnimalData() {
         pos = intent.getIntExtra("pos", -1)
-        val isOnFavorite = intent.getBooleanExtra("favorite", false)
-        val animal =
-            if (isOnFavorite)
-                main.favListAnimal[pos]
-            else
-                main.listAnimal[pos]
-        listIndex = main.listAnimal.indexOf(animal)
+        animal = main.listAnimal[pos]
 
         Glide.with(this)
             .load(animal.photo)
@@ -51,17 +44,17 @@ class DetailActivity: AppCompatActivity() {
 
     private fun setChipOnCheckedChangeListener() {
         chip_favorite.setOnCheckedChangeListener{ _, isChecked ->
-            main.listAnimal[listIndex].isFavorite = isChecked
-            val tempAnimal = main.listAnimal[listIndex]
-            val name = main.listAnimal[listIndex].name
-            val favCheck = main.listAnimal[listIndex].isFavorite
+            main.listAnimal[pos].isFavorite = isChecked
+            val animal = main.listAnimal[pos]
+            val name = main.listAnimal[pos].name
+            val favCheck = main.listAnimal[pos].isFavorite
 
             if (isChecked) {
-                main.favListAnimal.add(tempAnimal)
+                main.favListAnimal.add(animal)
                 main.favListAnimalAdapter.notifyItemInserted(main.favListAnimal.lastIndex)
             }
             else {
-                val animalFavoriteIndex = main.favListAnimal.indexOf(tempAnimal)
+                val animalFavoriteIndex = main.favListAnimal.indexOf(animal)
                 main.favListAnimal.removeAt(animalFavoriteIndex)
                 main.favListAnimalAdapter.notifyItemRemoved(animalFavoriteIndex)
             }

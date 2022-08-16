@@ -76,7 +76,8 @@
             android:layout_height="280dp"
             android:orientation="vertical"
             android:background="#C6C6C6"
-            android:clipToPadding="false">
+            android:clipToPadding="false"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/tv_no_favorite"

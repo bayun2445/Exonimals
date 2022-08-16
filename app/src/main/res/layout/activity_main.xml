@@ -16,10 +16,12 @@
             android:id="@+id/exonimals"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_subrayada"
             android:text="@string/app_name"
             android:textColor="@color/design_default_color_on_primary"
             android:textSize="30sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,14 +75,15 @@
             android:layout_width="match_parent"
             android:layout_height="280dp"
             android:orientation="vertical"
-            android:clipToPadding="false"
-            android:visibility="gone">
+            android:background="#C6C6C6"
+            android:clipToPadding="false">
 
             <TextView
                 android:id="@+id/tv_no_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/no_favorite"
+                android:fontFamily="@font/open_sans_light"
                 android:layout_gravity="center"
                 android:paddingVertical="20dp"/>
 

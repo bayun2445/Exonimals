@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rv_animals.setHasFixedSize(true)
-        rv_animals_favorite.setHasFixedSize(false)
         favListAnimal = ArrayList()
         loadListAnimal()
         loadFavListAnimal()
@@ -32,6 +30,11 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         checkFavoriteExistence()
+    }
+
+    private fun loadListAnimal() {
+        rv_animals.layoutManager = LinearLayoutManager(this)
+        rv_animals.adapter = listAnimalAdapter
     }
 
     private fun loadFavListAnimal() {
@@ -76,7 +79,6 @@ class MainActivity : AppCompatActivity() {
             override fun click(position: Int) {
                 Intent(this@MainActivity, DetailActivity::class.java).also{
                     it.putExtra("pos", position)
-                    it.putExtra("favorite", false)
                     startActivity(it)
                 }
             }
@@ -85,8 +87,8 @@ class MainActivity : AppCompatActivity() {
         favListAnimalAdapter.setClicked(object: ListAnimalAdapter.ItemClicked {
             override fun click(position: Int) {
                 Intent(this@MainActivity, DetailActivity::class.java).also{
-                    it.putExtra("pos", position)
-                    it.putExtra("favorite", true)
+                    val favPosition = listAnimal.indexOf(favListAnimal[position])
+                    it.putExtra("pos", favPosition)
                     startActivity(it)
                 }
             }
@@ -97,10 +99,5 @@ class MainActivity : AppCompatActivity() {
         btn_about_main.setOnClickListener {
             startActivity(Intent(this, AboutActivity::class.java))
         }
-    }
-
-    private fun loadListAnimal() {
-        rv_animals.layoutManager = LinearLayoutManager(this)
-        rv_animals.adapter = listAnimalAdapter
     }
 }

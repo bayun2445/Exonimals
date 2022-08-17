@@ -13,4 +13,8 @@
     <string name="no_favorite">No animal(s) is Favorite…</string>
     <string name="show">Show</string>
     <string name="hide">Hide</string>
+    <string name="exit_title">Exit Exonimals</string>
+    <string name="exit_message">Are you sure to exit?</string>
+    <string name="exit_positive">Yes</string>
+    <string name="exit_negative">No</string>
 </resources>

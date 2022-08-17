@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     companion object {
-        var listAnimal = AnimalData.listAnimals
-        val listAnimalAdapter = ListAnimalAdapter(listAnimal)
+        lateinit var listAnimal: ArrayList<Animal>
+        lateinit var listAnimalAdapter: ListAnimalAdapter
         lateinit var favListAnimal: ArrayList<Animal>
         lateinit var favListAnimalAdapter: ListAnimalAdapter
     }
@@ -19,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        favListAnimal = ArrayList()
         loadListAnimal()
         loadFavListAnimal()
         setShowChipCheckedChangeListener()
@@ -32,19 +34,68 @@ class MainActivity : AppCompatActivity() {
         checkFavoriteExistence()
     }
 
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).also{
+            it.setTitle(getString(R.string.exit_title))
+                .setMessage(R.string.exit_message)
+                .setPositiveButton(getString(R.string.exit_positive)) { _, _ ->
+                    saveFavoriteState()
+                    finish()
+                }
+                .setNegativeButton(getString(R.string.exit_negative)){ dialog, _ ->
+                    dialog.cancel()
+                }
+                .create()
+                .show()
+        }
+    }
+
+    private fun saveFavoriteState() {
+        val arrayFavorite = BooleanArray(listAnimal.size)
+
+        for (pos in 0..listAnimal.lastIndex) {
+            arrayFavorite[pos] = listAnimal[pos].isFavorite
+        }
+
+        val json: String = Gson().toJson(arrayFavorite)
+
+        getSharedPreferences("shared preferences", MODE_PRIVATE)
+            .edit()
+            .putString("favorites", json)
+            .apply()
+    }
+
     private fun loadListAnimal() {
+        listAnimal = AnimalData.listAnimals
+
+        val savedFavorite = getSharedPreferences("shared preferences", MODE_PRIVATE)
+        val json = savedFavorite.getString("favorites", null)
+
+        if(json != null){
+            if (json.isNotEmpty()){
+                val type = object : TypeToken<Array<Boolean>>(){}.type
+                val arrayFavorite: Array<Boolean> = Gson().fromJson(json, type)
+
+                for (pos in 0..listAnimal.lastIndex) {
+                    listAnimal[pos].isFavorite = arrayFavorite[pos]
+                }
+            }
+        }
+
+        listAnimalAdapter = ListAnimalAdapter(listAnimal)
         rv_animals.layoutManager = LinearLayoutManager(this)
         rv_animals.adapter = listAnimalAdapter
     }
 
     private fun loadFavListAnimal() {
+        favListAnimal = ArrayList()
         for (animal in listAnimal){
             if (animal.isFavorite)
                 favListAnimal.add(animal)
         }
 
-        rv_animals_favorite.layoutManager = LinearLayoutManager(this)
         favListAnimalAdapter = ListAnimalAdapter(favListAnimal)
+        rv_animals_favorite.layoutManager = LinearLayoutManager(this)
         rv_animals_favorite.adapter = favListAnimalAdapter
 
         checkFavoriteExistence()

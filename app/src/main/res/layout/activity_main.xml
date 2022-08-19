@@ -99,6 +99,13 @@
                 tools:listitem="@layout/item_list_animals" />
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:background="@color/green_primary"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+            tools:ignore="ContentDescription" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_animals"
             android:layout_width="match_parent"

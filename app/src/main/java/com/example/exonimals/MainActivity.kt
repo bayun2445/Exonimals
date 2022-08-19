@@ -88,11 +88,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadFavListAnimal() {
-        favListAnimal = ArrayList()
-        for (animal in listAnimal){
-            if (animal.isFavorite)
-                favListAnimal.add(animal)
-        }
+        favListAnimal = listAnimal.filter { it.isFavorite } as ArrayList<Animal>
 
         favListAnimalAdapter = ListAnimalAdapter(favListAnimal)
         rv_animals_favorite.layoutManager = LinearLayoutManager(this)

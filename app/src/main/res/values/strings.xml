@@ -5,7 +5,7 @@
     <string name="animal_name">AnimalName</string>
     <string name="origin">Origin</string>
     <string name="latin_name"><b>Species:</b> %1$s</string>
-    <string name="diet">Diet: %1$s</string>
+    <string name="diet"><b>Diet:</b> %1$s</string>
     <string name="habitat"><b>Habitat:</b> %1$s</string>
     <string name="class_text"><b>Class:</b> %1$s</string>
     <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis felis vitae ultricies pharetra. Praesent rhoncus dapibus pharetra. Etiam finibus justo sed consequat ullamcorper. Fusce lobortis orci eu vulputate porta. Maecenas id molestie eros, congue dictum nisl. Praesent volutpat ornare nulla, eu tincidunt urna aliquam nec. Proin mattis ut odio sit amet pulvinar. Morbi egestas consequat velit id consectetur. Vivamus scelerisque ipsum eu luctus feugiat.</string>

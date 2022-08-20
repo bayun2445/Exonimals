@@ -47,20 +47,20 @@ class DetailActivity: AppCompatActivity() {
             main.listAnimal[pos].isFavorite = isChecked
             val animal = main.listAnimal[pos]
             val name = main.listAnimal[pos].name
-            val favCheck = main.listAnimal[pos].isFavorite
 
             if (isChecked) {
                 main.favListAnimal.add(animal)
                 main.favListAnimalAdapter.notifyItemInserted(main.favListAnimal.lastIndex)
+                Toast.makeText(this, "$name added to Favorite", Toast.LENGTH_SHORT)
+                    .show()
             }
             else {
                 val animalFavoriteIndex = main.favListAnimal.indexOf(animal)
                 main.favListAnimal.removeAt(animalFavoriteIndex)
                 main.favListAnimalAdapter.notifyItemRemoved(animalFavoriteIndex)
+                Toast.makeText(this, "$name removed from Favorite", Toast.LENGTH_SHORT)
+                    .show()
             }
-
-            val favListCheck = main.favListAnimal.size
-            Toast.makeText(this, "$name's isFavorite: $favCheck \n Chip's: $isChecked \n Favorite List Size: $favListCheck", Toast.LENGTH_SHORT).show()
         }
     }
 

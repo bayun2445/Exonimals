@@ -81,7 +81,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
         listAnimalAdapter = ListAnimalAdapter(listAnimal)
         rv_animals.layoutManager = LinearLayoutManager(this)
         rv_animals.adapter = listAnimalAdapter

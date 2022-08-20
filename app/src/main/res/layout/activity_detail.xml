@@ -61,7 +61,7 @@
                     android:layout_width="150dp"
                     android:layout_height="160dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/kukang"
+                    android:src="@drawable/bebek_mandarin"
                     tools:ignore="ContentDescription" />
             </androidx.cardview.widget.CardView>
 

@@ -11,7 +11,12 @@ object AnimalData {
         "Lumba-lumba Amazon",
         "Katak Atelopus",
         "Trenggiling",
-        "Rubah Fennec"
+        "Rubah Fennec",
+        "Walabi",
+        "Sugar Glider",
+        "Margay",
+        "Kelinci Patagonia",
+        "Makau Merah",
     )
 
     private val classifications = arrayOf(
@@ -24,7 +29,12 @@ object AnimalData {
         "Mammalia",
         "Reptilia",
         "Mammalia",
-        "Mammalia"
+        "Mammalia",
+        "Mammalia",
+        "Mammalia",
+        "Mammalia",
+        "Mammalia",
+        "Aves",
     )
 
     private val latinNames = arrayOf(
@@ -37,20 +47,30 @@ object AnimalData {
         "Inia geoffrensis",
         "Atelopus varius",
         "Manis pentadactyla",
-        "Vulpes zerda"
+        "Vulpes zerda",
+        "Macropus parma",
+        "Petaurus breviceps",
+        "Leopardus wiedii",
+        "Dolichotis patagonum",
+        "Ara macao",
     )
 
     private val habitats = arrayOf(
         "Asia Tenggara",
-        "Asia Timur; Eropa Barat",
-        "Amerika Tengah & Selatan, Asia Tenggara",
-        "Samudera Hindia, Australia",
-        "Samudera Pasifik; Samudera Atlantik",
-        "Asia Timur, Jepang",
+        "Asia Timur, Eropa Barat",
+        "Amerika Tengah, Asia Tenggara",
+        "Australia",
+        "Pasifik, Atlantik",
+        "Asia Timur",
         "Amerika Selatan",
         "Amerika Utara",
-        "Asia Selatan; Asia Timur; Asia Tenggara",
-        "Afrika Utara"
+        "Asia",
+        "Afrika Utara",
+        "Australia, Oceania",
+        "Australia, Oceania",
+        "Amerika Selatan",
+        "Amerika Selatan",
+        "Amerika Selatan",
     )
 
     private val diets = arrayOf(
@@ -63,7 +83,12 @@ object AnimalData {
         "Karnivora",
         "Insectivora",
         "Insectivora",
-        "Omnivora"
+        "Omnivora",
+        "Herbivora",
+        "Omnivora",
+        "Karivora",
+        "Herbivora",
+        "Omnivora",
     )
 
     private val descriptions = arrayOf(
@@ -76,11 +101,16 @@ object AnimalData {
         "Lumba-lumba Amazon, atau disebut juga Lumba-lumba Boto adalah salah satu dari lima lumba-lumba sungai dan merupakan spesies paling terkenal dari kelompoknya. Tubuh mamalia ini panjang dan montok, sedangkan siripnya mengingatkan pada dayung dari bentuknya. Selain itu, hewan ini dapat dengan mudah diidentifikasi dengan memiliki punggung di punggungnya, bukan sirip punggung. Lumba-lumba Sungai Amazon juga menonjol dari spesies lumba-lumba lainnya karena warnanya, mulai dari abu-abu kebiruan hingga putih, dan terkadang merah muda. Beberapa tulang belakang lumba-lumba tidak menyatu, membuat leher hewan itu sangat fleksibel, yang memungkinkan lumba-lumba menggerakkan kepalanya ke hampir semua arah.",
         "Atelopus varius, katak harlequin variabel Kosta Rika atau katak badut, adalah katak kecil Neotropis sejati dari keluarga Bufonidae. Setelah mulai dari Kosta Rika hingga Panama, A. varius sekarang terdaftar sebagai sangat terancam punah dan telah berkurang menjadi satu populasi yang tersisa di dekat Quepos, Kosta Rika dan hanya memiliki populasi peninggalan di Panama barat . Variasi terbaru dalam suhu udara, curah hujan, pola aliran sungai, dan penyebaran berikutnya dari jamur chytrid patogen terkait dengan perubahan iklim global telah menjadi penyebab utama penurunan A. varius .",
         "Mamalia yang paling banyak diburu manusia bukanlah harimau, badak atau gajah melainkan trenggiling. Trenggiling adalah salah satu dari hanya delapan spesies dalam ordo Pholodia, yang berarti 'binatang bersisik'. Hewan ini juga dikenal dengan nama trenggiling bersisik dan ia mengkhususkan diri dalam memakan semut dan rayap saja. ",
-        "Rubah Fennec ditemukan di seluruh Sahara, dari Maroko dan Mauritania ke Sudan utara, melalui Mesir, Semenanjung Sinai, dan gurun Arava dan Negev di Israel selatan. Ini mendiami bukit pasir kecil dan daerah pasir luas tanpa pohon dekat biaya dengan vegetasi jarang seperti rumput, sedges, dan semak-semak kecil."
+        "Rubah Fennec ditemukan di seluruh Sahara, dari Maroko dan Mauritania ke Sudan utara, melalui Mesir, Semenanjung Sinai, dan gurun Arava dan Negev di Israel selatan. Ini mendiami bukit pasir kecil dan daerah pasir luas tanpa pohon dekat biaya dengan vegetasi jarang seperti rumput, sedges, dan semak-semak kecil.",
+        "Hewan ini berasal dari keluarga yang sama dengan kanguru tetapi berbeda secara spesifik dalam ukuran — mereka lebih kecil dari kanguru. Ada 11 spesies walabi yang berbeda. Seorang bayi dikenal sebagai \"joey\", sedangkan orang dewasa dikenal sebagai \"boomer\" atau \"buck\" (jika laki-laki) dan \"doe\" atau \"jill\" (jika perempuan). Wallabi memakan rumput, dedaunan, dan sayuran terutama, dan berkumpul di sekitar lubang air selama musim kemarau.",
+        "Namanya tidak jauh perilaku hewan ini - makanan manis adalah makanan pilihan mereka, dan mereka memiliki kemampuan untuk meluncur di udara, seperti tupai terbang. Bagi mereka, meluncur bukan hanya sebagai alat bergerak, tetapi juga cara mencari makanan dan menghindari pemangsa. Mereka terutama ditemukan di beberapa bagian Australia, New Guinea, dan Tasmania.",
+        "Kucing Margay hidup di seluruh Amerika Selatan dan Meksiko dan berkerabat dengan Ocelot, yang menawarkan kemiripan yang mencolok; mereka kadang-kadang dikenal sebagai \"ocelot pohon\" karena kemampuan memanjat mereka yang luar biasa. Kucing ini menghabiskan sebagian besar waktunya di pohon, bukan di tanah, dan bisa melompat hingga 12 kaki ke udara. Mereka juga terutama hewan nokturnal.",
+        "Kelinci Patagonia secara teknis merupakan bagian dari keluarga hewan pengerat. Mereka dapat ditemukan di Argentina dan hidup dalam mode monogami yang sangat khusus, meskipun mereka kadang-kadang berkembang biak dalam kelompok hingga 29 pasang. Mitra adalah monogami satu sama lain kecuali satu mati, setelah itu yang tersisa dapat menemukan pasangan lain. Mereka membedakan satu sama lain berdasarkan wilayah yang ditandai baik oleh diri mereka sendiri atau oleh pasangan mereka.",
+        "Makau Merah secara luas dianggap oleh pecinta burung sebagai burung beo yang paling indah, macaw merah termasuk yang paling berwarna-warni. Mereka memiliki warna bulu merah, biru, dan kuning. Burung yang mencolok dan berani ini penuh energi dan memiliki kepribadian yang positif."
     )
 
     private val photos = arrayOf(
-        R.drawable.kukang,
+        R.drawable.kukang_asia,
         R.drawable.bebek_mandarin,
         R.drawable.tapir,
         R.drawable.naga_laut_berdaun,
@@ -89,7 +119,12 @@ object AnimalData {
         R.drawable.lumba_lumba_amazon,
         R.drawable.katak_atelopus,
         R.drawable.trenggiling,
-        R.drawable.rubah_fennec
+        R.drawable.rubah_fennec,
+        R.drawable.walabi,
+        R.drawable.sugar_glider,
+        R.drawable.kucing_margay,
+        R.drawable.kelinci_patagonia,
+        R.drawable.makau_merah,
     )
 
     val listAnimals: ArrayList<Animal>
